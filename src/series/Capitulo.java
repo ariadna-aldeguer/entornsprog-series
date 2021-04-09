@@ -4,12 +4,21 @@ import java.util.ArrayList;
 
 public class Capitulo extends Especial{
 	
-	public final int DURACION = 0;
+	public final int DURACION=45;
 	private int duracion;
 	private int num;
 	private Temporada temporada;
 	private ArrayList<Personaje> personajes;
 	
+	
+	
+	
+	public Capitulo(int num, Temporada temporada, int duration) {
+		this.duracion = duration;
+		this.num = num;
+		this.temporada = temporada;
+		this.personajes = new ArrayList<Personaje>();
+	}
 	
 	public String ListaPersonajes() {
 		String res="";
@@ -30,6 +39,16 @@ public class Capitulo extends Especial{
 	public void setDuracion(int duracion) {
 		this.duracion = duracion;
 	}
+	public int getNum() {
+		return num;
+	}
+	public void setNum(int num) {
+		this.num = num;
+	}
+	
+	
+	
+	
 	
 	
 	

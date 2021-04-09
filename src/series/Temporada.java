@@ -16,6 +16,12 @@ public class Temporada {
 		this.serie = serie;
 	}
 	
+	public Temporada(int numero) {
+		this.numero = numero;
+		this.capitulos = new ArrayList<Capitulo>();
+	}
+	
+	
 	// POR DEFECTO
 	public Temporada() {
 		this.capitulos = new ArrayList<Capitulo>();
@@ -30,16 +36,57 @@ public class Temporada {
 	}
 	
 	public boolean addCapitulo(Capitulo capitulo) {
-		capitulos.add(capitulo);
-		capitulo.setTemporada(this);   //this --> temporada. 
-		return true; 
+		if(!capitulos.contains(capitulo)) {
+			capitulos.add(capitulo);
+			return true;
+		} else {
+			return true;
+		}
 	}
 	
 	public String ListaCapitulos() {
-		String resultado="";
-		for (Capitulo capitulo: capitulos) {
-			resultado += capitulo; // Se deberia implentar la clase toString de capitulo.
+		String res = "";
+		for (Capitulo capitulo:capitulos) {
+			res = res + capitulo;
 		}
-		return resultado;	
+		return res;
 	}
+
+	@Override
+	public String toString() {
+		return "Temporada [numero=" + numero + ", serie=" + serie.getTitulo()+ "]\n";
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + numero;
+		result = prime * result + ((serie == null) ? 0 : serie.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Temporada other = (Temporada) obj;
+		if (numero != other.numero)
+			return false;
+		if (serie == null) {
+			if (other.serie != null)
+				return false;
+		} else if (!serie.equals(other.serie))
+			return false;
+		return true;
+	}
+	
+	
+	
+	
+	
 }

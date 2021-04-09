@@ -7,6 +7,13 @@ public class Serie {
 	private String titulo;
 	private ArrayList<Temporada> temporadas;
 	
+	public String getTitulo() {
+		return titulo;
+	}
+	public void setTItulo(String titulo) {
+		this.titulo = titulo;
+	}
+	
 	public Serie(String titulo, ArrayList<Temporada> temporadas) {
 		this.titulo = titulo;
 		this.temporadas = temporadas;
@@ -24,10 +31,22 @@ public class Serie {
 	} 
 	
 	public boolean addTemporada(Temporada temporada) {
-		temporadas.add(temporada);
-		temporada.setSerie(this);   //this --> serie. 
-		return true; 
+		if (!temporadas.contains(temporada)) {
+			temporadas.add(temporada);
+			return true;
+		} else {
+			return false;
+		}
 	}
+	@Override
+	public String toString() {
+		String res= "Serie [titulo=" + titulo + " ]\n";
+		for(Temporada temporada:temporadas)
+			res=res+temporada;
+		return res;
+	}
+	
+	
 
 
 	
