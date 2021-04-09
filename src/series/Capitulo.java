@@ -46,10 +46,6 @@ public class Capitulo extends Especial{
 		this.num = num;
 	}
 	
-	
-	
-	
-	
-	
+		
 	
 }
