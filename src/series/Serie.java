@@ -7,12 +7,6 @@ public class Serie {
 	private String titulo;
 	private ArrayList<Temporada> temporadas;
 	
-	public String getTitulo() {
-		return titulo;
-	}
-	public void setTItulo(String titulo) {
-		this.titulo = titulo;
-	}
 	
 	public Serie(String titulo, ArrayList<Temporada> temporadas) {
 		this.titulo = titulo;
@@ -27,6 +21,7 @@ public class Serie {
 	
 	// POR DEFECTO 
 	public Serie() {
+		this.titulo = "";
 		this.temporadas = new ArrayList<Temporada>();
 	} 
 	
@@ -47,8 +42,41 @@ public class Serie {
 	}
 	
 	
-
-
+	public String getTitulo() {
+		return titulo;
+	}
+	public ArrayList<Temporada> getTemporadas() {
+		return temporadas;
+	}
+	public void setTemporadas(ArrayList<Temporada> temporadas) {
+		this.temporadas = temporadas;
+	}
+	public void setTitulo(String titulo) {
+		this.titulo = titulo;
+	}
+		
+	/* SIN REFACTORING
+	public int getDuracionSerie() {
+		int total=0;
+		
+		for (Temporada temporada:temporadas) {
+			ArrayList<Capitulo> capitulos = temporada.getCapitulos();
+			for(Capitulo capitulo:capitulos) {
+				total = total+capitulo.getDuracion();
+			}
+		}
+		return total;
+	}
+	
+	CON REFACTORING	
+	public int getDuracionSerieCon() {
+		int total=0;
+		for (Temporada temporada:temproadas) {
+			total = total+temporada.getDuration();
+		}
+		return total;
+	}
+	*/
 	
 	
 }

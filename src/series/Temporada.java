@@ -43,13 +43,42 @@ public class Temporada {
 			return true;
 		}
 	}
-	
+	/* VERSION2
+	public boolean addCapitulo(Capitulo c) {
+		
+		if (!capitulos.contains(c)) {
+			capitulos.add(c);
+			return true;
+		} else {
+			retrun false;
+		}
+		return ok;
+	}
+	*/
 	public String ListaCapitulos() {
 		String res = "";
 		for (Capitulo capitulo:capitulos) {
 			res = res + capitulo;
 		}
 		return res;
+	}
+	
+	/* VERSION2 
+	 public String listaCapitulos() {
+		StringBuffer sb = new StringBuffer();
+		for(Capitulo cap:capitulos) {
+			sb.append(this.serie.getTitulo()+"T"+this.numero+"C"+cap.getNum());
+		}
+		return sb.toString();
+	 }
+	 */
+	
+	public int getDuracion() {
+		int total=0;
+		for(Capitulo capitulo:capitulos) {
+			total = total+capitulo.getDuracion();
+		}
+		return total;
 	}
 
 	@Override

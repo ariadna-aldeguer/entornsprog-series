@@ -13,7 +13,7 @@ public class main {
 		miserie.addTemporada(new Temporada(6,miserie));
 		
 		Temporada temporada6 = new Temporada(6,miserie);
-		temporada6.addCapitulo(new Capitulo(1,temporada6,45));
+		temporada6.addCapitulo(new Capitulo(45,1,temporada6));
 		miserie.addTemporada(temporada6);
 		
 		System.out.print(miserie);
